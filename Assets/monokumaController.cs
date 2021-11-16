@@ -11,11 +11,15 @@ public class monokumaController : MonoBehaviour
     public float stopDistance;
     public float retreatDistance;
 
+    GameObject bullet;
+
+    float bulletCooldown = 0f;
     public Transform player;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        bullet = transform.GetChild(0).gameObject;
         player = GameObject.Find("galaOmega").transform;
     }
 
@@ -31,9 +35,24 @@ public class monokumaController : MonoBehaviour
         else if (Vector2.Distance(transform.position, player.position) < retreatDistance){
             transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
         }
+
+        if(bulletCooldown <= 0){
+            FireBullet();
+            bulletCooldown = 3;
+        }
+        else if (bulletCooldown > 0){
+        bulletCooldown -= Time.deltaTime;
+        }
+    
     }
     void MoveKuma(Vector2 vel){
         rb.velocity = vel * speed;
+    }
+
+    void FireBullet(){
+        GameObject temp = Instantiate(bullet, transform.position, transform.rotation);
+        temp.GetComponent<SpriteRenderer>().enabled = true;
+        temp.GetComponent<kumaBulletController>().enabled = true;
     }
     void OnTriggerEnter2D(Collider2D col){
         if(col.gameObject.name == "galaOmegaBullet(Clone)" && this.name=="monokumaHead"){

@@ -58,7 +58,11 @@ public class shipController : MonoBehaviour
         temp.GetComponent<Rigidbody2D>().isKinematic = false;
         temp.GetComponent<bulletController>().enabled = true;
     }
-    void OnCollisionEnter2D(Collision2D col){
+    void OnTriggerEnter2D(Collider2D col){
+        if(col.gameObject.name == "monokumaBullet(Clone)" && this.name=="galaOmega"){
+            SceneManager.LoadScene(0);
+        }
+    }    void OnCollisionEnter2D(Collision2D col){
         if(col.gameObject.name == "monokumaHead" && this.name=="galaOmega"){
             SceneManager.LoadScene(0);
         }

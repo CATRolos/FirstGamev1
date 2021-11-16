@@ -689,7 +689,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164618947}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1101,9 +1101,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2092848975}
   - component: {fileID: 2092848979}
-  - component: {fileID: 2092848978}
   - component: {fileID: 2092848977}
   - component: {fileID: 2092848976}
+  - component: {fileID: 2092848978}
   m_Layer: 0
   m_Name: monokumaBullet
   m_TagString: Untagged
@@ -1181,10 +1181,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2092848974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e46378e6e9f29a4c87e3c3dad698f8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 777887f8c37c16c44a450acc21043d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 500
+  speed: 5
 --- !u!212 &2092848979
 SpriteRenderer:
   m_ObjectHideFlags: 0
